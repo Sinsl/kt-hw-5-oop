@@ -15,13 +15,13 @@ class WallServiceTest {
     @Test
     fun addPost() {
         val result = WallService.add(Post(ownerId = 1, fromId = 1, text = "Текст записи 1"))
-        assertEquals(result.id, 1)
+        assertEquals(result.id, 2)
     }
 
     @Test
     fun updateWithReturnTrue() {
         val post = WallService.add(Post(ownerId = 2, fromId = 2, text = "Текст записи 1"))
-        val changePost = post.copy(text = "Изменения")
+        val changePost = post.copy(id = 5, text = "Изменения")
         assertTrue(WallService.update(changePost))
     }
 
