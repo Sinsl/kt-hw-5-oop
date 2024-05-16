@@ -1,5 +1,6 @@
 package ru.netology
 
+import ru.netology.attachments.Attachment
 import java.time.LocalDateTime
 
 data class Post(
@@ -11,5 +12,6 @@ data class Post(
     val canPin: Boolean = true,
     val isPinned: Boolean = false,
     val likes: Likes = Likes(),
+    var attachments: Array<Attachment> = emptyArray<Attachment>(),
     val postType: PostType = PostType.POST,
 )

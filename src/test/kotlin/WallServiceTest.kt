@@ -4,6 +4,8 @@ import org.junit.Assert.*
 import org.junit.Before
 import ru.netology.Post
 import ru.netology.WallService
+import ru.netology.attachments.Audio
+import ru.netology.attachments.AudioAttachment
 
 class WallServiceTest {
 
@@ -29,4 +31,20 @@ class WallServiceTest {
     fun updateWithReturnFalse() {
         assertFalse(WallService.update(Post(ownerId = 3, fromId = 3, text = "Текст записи 3")))
     }
+
+    @Test
+    fun addAttachment() {
+        val result = WallService.add(Post(ownerId = 1, fromId = 1, text = "Текст записи 1"))
+        val isAddAttach1 =
+            result.id?.let {
+                WallService.addAttachment(AudioAttachment(Audio(125, 1, "Певец", "Название песни", 130, "https://vk/1")),
+                    it
+                )
+            }
+        if (isAddAttach1 != null) {
+            assertTrue(isAddAttach1)
+        }
+    }
+
+
 }
