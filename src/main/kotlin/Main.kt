@@ -7,13 +7,14 @@ fun main() {
     val post1 = Post(
         ownerId = 1,
         fromId = 1,
-        text = "Текст записи 1",
+        text = null,
     )
     val post2 = Post(
         ownerId = 2,
         fromId = 2,
         text = "Текст записи 2",
     )
+    println(post1)
 
     val postLastArr1 = WallService.add(post1)
     val postLastArr2 = WallService.add(post2)
